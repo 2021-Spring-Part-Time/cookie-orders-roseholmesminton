@@ -1,7 +1,11 @@
 package cookies;
 
- /*Declare your ArrayList and name it orders
-        Create an empty constructor and the following methods*/
+ /*Declares an ArrayList and names it orders
+        Creates methods add orders, remove a cookie variety,
+        count the total number of boxes ordered,
+        count the total number of boxes ordered for a given variety
+        and print the ArrayList
+  */
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +36,7 @@ public class MasterOrder {
 
     public int getVarietyBoxes(String variety) {
         int CountVarietyBoxes = 0;
-        for (CookieOrder order: orders) {
+        for (CookieOrder order : orders) {
             if (order.getVariety().equals(variety)) {
                 CountVarietyBoxes += order.getNumBoxes();
 
@@ -41,7 +45,13 @@ public class MasterOrder {
         }
         return CountVarietyBoxes;
     }
-}
+        public void showOrder(){
+            for(CookieOrder order: orders){
+                System.out.println("Variety: " + order.getVariety() + " Boxes: " + order.getNumBoxes() );
+            }
+        }
+    }
+
 
 
 

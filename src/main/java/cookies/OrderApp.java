@@ -1,39 +1,37 @@
 package cookies;
 
-import java.util.LinkedList;
+
+import java.util.Scanner;
 
 public class OrderApp {
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
         //  Add 4 orders
-
+        MasterOrder myOrder = new MasterOrder();
+        myOrder.addOrder(new CookieOrder("Tagalongs", 1));
+        myOrder.addOrder(new CookieOrder("Thin Mints", 5));
+        myOrder.addOrder(new CookieOrder("Samoas", 2));
+        myOrder.addOrder(new CookieOrder("Tagalongs", 3));
+        //Show the list
+        System.out.println("Current Order");
+        myOrder.showOrder();
 
         // Total the boxes purchased
-
-        //Show the list
-
+        System.out.println();
+        System.out.println("You have ordered " + myOrder.getTotalBoxes() + " boxes");
+        System.out.println();
         // Remove a variety and give feedback on how many boxes were removed
-
+        System.out.println("What would you like to remove? (specify a variety or none)");
+        String varietyToRemove = input.nextLine();
+        System.out.println("You are removing " + myOrder.getVarietyBoxes(varietyToRemove) + " " + varietyToRemove);
+        myOrder.removeVariety(varietyToRemove);
         //Show the updated list
+        System.out.println("Current Order");
+        myOrder.showOrder();
+        System.out.println();
     }
 }
-
-//Example
-    /*Current Order
-        Variety: Tagalongs Boxes: 1
-        Variety: Thin Mints Boxes: 5
-        Variety: Samoas Boxes: 2
-        Variety: Tagalongs Boxes: 3
-
-    You have ordered 11 boxes
-
-        What would you like to remove? (specify a variety or none)
-        Thin Mints
-        You are removing 5 Thin Mints
-        Current Order
-        Variety: Tagalongs Boxes: 1
-        Variety: Samoas Boxes: 2
-        Variety: Tagalongs Boxes: 3*/
 
 
 //Stretch
