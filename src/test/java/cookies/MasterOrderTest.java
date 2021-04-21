@@ -53,4 +53,18 @@ public class MasterOrderTest {
 
         assertThat(check, is(1));
     }
+
+    @Test
+    public void shouldReturnTotalOfFourForThinMints(){
+        MasterOrder underTest = new MasterOrder();
+        CookieOrder cookieOrderTest = new CookieOrder("thin mints", 3);
+        CookieOrder cookieOrderTest2 = new CookieOrder("samoas",1);
+        CookieOrder cookieOrderTest3 = new CookieOrder("thin mints", 1);
+        underTest.addOrder(cookieOrderTest);
+        underTest.addOrder(cookieOrderTest2);
+        underTest.addOrder(cookieOrderTest3);
+        int check = underTest.getVarietyBoxes("thin mints");
+
+        assertThat(check, is(4));
+    }
 }

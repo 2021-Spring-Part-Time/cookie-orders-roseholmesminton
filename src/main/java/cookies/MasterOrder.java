@@ -29,6 +29,18 @@ public class MasterOrder {
 
         }
     }
+
+    public int getVarietyBoxes(String variety) {
+        int CountVarietyBoxes = 0;
+        for (CookieOrder order: orders) {
+            if (order.getVariety().equals(variety)) {
+                CountVarietyBoxes += order.getNumBoxes();
+
+            }
+
+        }
+        return CountVarietyBoxes;
+    }
 }
 
 
